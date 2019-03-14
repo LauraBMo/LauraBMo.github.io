@@ -12,3 +12,4 @@
 
 # Directory that Jekyll automatically generates at each commit
 _site/
+.sass-cache/
