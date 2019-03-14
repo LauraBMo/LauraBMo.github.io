@@ -1,2 +1,22 @@
-name: Laura Brustenga i Moncusi
-markdown: kramdown
+# main text of home
+name: Brustenga i Moncusí
+bio: A Girl who lives life
+
+# twitter summary info
+description: My mine mines are all yours.
+
+picture: assets/images/picture.jpg
+
+## url: http://koppl.in/violet
+url: http://LauraBMo.github.io
+
+# if you don't have any of social below, comment the line
+# facebook: myfacebook
+# twitter: mytwitter
+github: LauraBMo
+email: brust@mat.uab.cat
+
+gems:
+  - jekyll-seo-tag
+
+exclude: [README.md, Gemfile, Gemfile.lock, _site, Rakefile, travis.sh, vendor]
