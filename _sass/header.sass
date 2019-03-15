@@ -1,8 +1,13 @@
+/* Padding: top right bottom left     */
+/*          top (right,left) bottom   */
+/*          (top,bottom) (right,left) */
+/*          (top,bottom,right,left)   */
+
 header
   width: 300px
-  padding: 0 50px 150px 0
+  padding: 0 50px 0 0
   position: relative
-  float: left
+  float: right
   @media #{$below}
     float: none
   @media #{$small}
@@ -10,13 +15,7 @@ header
 
   img
     width: 80%
-    margin-bottom: 20px
-
-  nav ul
-    margin-bottom: 20px
-
-  nav ul li
-    margin-bottom: 10px
+    margin-bottom: 5px
 
   p
     margin-bottom: 20px
@@ -24,3 +23,21 @@ header
 
   small
     font-size: 0.7em
+
+nav
+  width: 200px
+  padding: 80px 0 0 0px
+  margin-left: -50px
+  position: relative
+  float: left
+  @media #{$below}
+    float: none
+  @media #{$small}
+    width: 100%
+
+  ul
+    margin-bottom: 20px
+
+  ul li
+    margin-bottom: 10px
+/* Change the link color on hover */

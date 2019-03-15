@@ -1,5 +1,5 @@
 # main text of home
-name: "Laura Brustenga i Moncusí"
+name: "Brustenga i Moncusí, L."
 # Description to show on Google.  
 bio: Personal <b>web page</b> of the mathematician <b>Laura Brustenga</b>  
 
@@ -17,7 +17,8 @@ url: https://LauraBMo.github.io
 github: LauraBMo
 email: brust@mat.uab.cat
 arxiv: "search/advanced?advanced=&terms-0-operator=AND&terms-0-term=Laura+brustenga&terms-0-field=author&terms-1-operator=OR&terms-1-term=brustenga%2C+P&terms-1-field=author&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first"
-gems:
+
+plugins:
   - jekyll-seo-tag
 
 exclude: [README.md, Gemfile, Gemfile.lock, _site, Rakefile, travis.sh, vendor]
