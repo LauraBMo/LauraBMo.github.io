@@ -8,25 +8,28 @@
   font-size: 15px
   max-width: 500px
 
-.myimg
-    position: relative
-    float: right
-    img
-      ALIGN: left
-
 .content
   @media #{$below} /* when it is show _below_ header */
     font-size: 18px
     max-width: 450px
     margin-top: 50px
     border-top: 1px solid #382640
-    padding: 30px 0 100px
+    padding: 30px 0 50px
 
   @media #{$above} /* when it is show _next to_ header */
     margin-left: 250px
     font-size: 18px
     max-width: 450px
-    padding: 30px
+    padding: 0px
+
+.myimg
+  @media #{$below} /* when it is show _below_ header */
+    position: relative
+    padding: 15px 0px
+
+  @media #{$above} /* when it is show _next to_ header */
+    position: absolute
+    left: 850px
 
 .content p
   margin-bottom: 30px
