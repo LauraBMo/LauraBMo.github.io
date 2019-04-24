@@ -1,7 +1,9 @@
 # main text of home
 name: "Brustenga i Moncusí, L."
+author: "Laura Brustenga i Moncusí"
 # Description to show on Google.  
 bio: Personal <b>web page</b> of the mathematician <b>Laura Brustenga</b>  
+image: /assets/images/picture.jpg
 
 # twitter summary info
 # e.g., it is show shearing a link via whatsapp
