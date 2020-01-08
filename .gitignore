@@ -13,3 +13,8 @@
 # Directory that Jekyll automatically generates at each commit
 _site/
 .sass-cache/
+
+# add assets
+!/assets/
+!/assets/*
+!/assets/**/*
