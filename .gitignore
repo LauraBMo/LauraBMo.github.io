@@ -1,20 +1,25 @@
-# Compiled
-*.elc
-
-# Packaging
-.cask
-
-# Backup files
+### Linux template
 *~
 
-# Undo-tree save-files
-*.~undo-tree
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
 
-# Directory that Jekyll automatically generates at each commit
-_site/
-.sass-cache/
+# KDE directory preferences
+.directory
 
-# add assets
-!/assets/
-!/assets/*
-!/assets/**/*
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### Hugo template
+# Generated files by hugo
+/public/
+/resources/_gen/
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+

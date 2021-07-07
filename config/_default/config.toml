@@ -1,0 +1,12 @@
+# General Settings
+baseURL = "/"
+title = "Math Laura Brustenga's web page"
+theme = "researcher"
+paginate = 10
+
+# Language Settings
+languageCode = "en"
+
+# Flags
+enableEmoji = true
+enableRobotsTXT = true

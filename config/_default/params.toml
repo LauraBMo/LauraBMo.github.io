@@ -1,0 +1,30 @@
+author = "Olivier Roques"
+description = "A simple monospaced resume theme for Hugo."
+favicon = "favicon.ico"  # path to a .ico to use as favicon
+logo = ""  # url or path to a logo to put in the header
+
+[footer]
+text = "By Laura Brustenga i Moncusí"
+url = "https://github.com/ojroques/hugo-researcher"
+
+#[style]  # appearance options (can be omitted)
+#fontFamily = "Inconsolata"
+#pageWidth = "750px"
+#avatarSize = "90px"
+#colorBlack = "#222222"
+#colorRed = "#dc3545"
+
+[[socialIcons]]
+icon = "fab fa-twitter"
+title = "arXiv"
+url = "..."
+
+[[socialIcons]]
+icon = "fas fa-envelope"
+title = "E-mail"
+url = "mailto:brust@math.ku.dk"
+
+[[socialIcons]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/LauraBMo"

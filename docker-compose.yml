@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  hugo:
+    container_name: hugo
+    image: "peaceiris/hugo:v${HUGO_VERSION}-full"
+    restart: always
+    expose:
+      - "80/tcp"
+    volumes:
+      - ${PWD}:/src
+    command:
+      - server
+      - --bind=0.0.0.0
+      - --port=80
+      - --buildDrafts
+      - --buildFuture
+      - --baseURL=http://${BASE_DOMAIN}/
+      - --appendPort=false
+    networks:
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.default.protocol=http"
+      - "traefik.backend=hugo"
+      - "traefik.frontend.rule=Host:${BASE_DOMAIN}"
+      - "traefik.port=80"
+
+  traefik:
+    image: bluerose/docker-traefik:1.0.1
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: on-failure
