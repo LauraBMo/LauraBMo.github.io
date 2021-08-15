@@ -23,7 +23,7 @@ On the pure side, I study the geometry of a locally closed subfunctor of the Hil
 aiming to obtain sharper upper bounds on the dimension of linear systems of curves on surfaces.
 On the applied side, I started working on Numerical Algebraic Geometry and Chemical Reaction Networks.<br />
 
-## Publications
+## Papers
 
 1. *The Waring rank of binary binomial forms*, with [S.K.Masuti](https://www.cmi.ac.in/people/fac-profile.php?id=shreedevikm).  
    * Pac. J. Math. (to appear)  
@@ -38,17 +38,17 @@ On the applied side, I started working on Numerical Algebraic Geometry and Chemi
    * Le Matematiche 75 (2020), no.2, pp. 425--437
    * | [BibTeX](/bibtex/DegreeOrbitCubic.bib) | [DOI](https://doi.org/10.4418/2020.75.2.2) | [ArXiv](https://arxiv.org/abs/1909.06620) |
    
-4. *On the universal scheme of r-relative clusters of a family*
-   * Communications in Algebra 45 (2017), no.6, pp. 2708--2725  
+4. *On the universal scheme of r-relative clusters of a family*.  
+   * Communications in Algebra 45 (2017), no.6, pp. 2708--2725
    * | [BibTeX](/bibtex/BrustengaMoncusi2017.bib) | [DOI](https://doi.org/10.1080/00927872.2016.1175452) | [ArXiv](https://arxiv.org/abs/1408.0552) |
 
 ## Preprints
 
-1. *Disguised toric dynamical systems*, with [G.Craciun](https://people.math.wisc.edu/~craciun/) & [M.-Ş.Sorea](https://sites.google.com/view/mirunastefanasorea/)
+1. *Disguised toric dynamical systems*, with [G.Craciun](https://people.math.wisc.edu/~craciun/) & [M.-Ş.Sorea](https://sites.google.com/view/mirunastefanasorea/).  
    * submitted
    * | [ArXiv](https://arxiv.org/abs/2006.01289) |
 
-2. *The blow up split section family*
+2. *The blow up split section family*.  
    * | [ArXiv](https://arxiv.org/abs/1808.03062) |
 
 <!-- ## Typography -->
