@@ -6,7 +6,7 @@ title = "About"
 
 {{< figure class="avatar" src="/avatar.jpg" alt="avatar">}}
 
-I am a postdoc at [Department of Mathematical Sciences](https://www.math.ku.dk/english/) of the [University of Copenhagen](https://www.ku.dk/english/) in the [Mathematical Biology](https://www.math.ku.dk/english/research/spt/reaction-networks/) group, mentored by [Elisenda Feliu](http://web.math.ku.dk/~efeliu/).
+I am a postdoc at [Department of Mathematical Sciences](https://www.math.ku.dk/english/) of the [University of Copenhagen](https://www.ku.dk/english/) in the [Mathematical Biology](https://www.math.ku.dk/english/research/spt/reaction-networks/) group, where my mentor is [Elisenda Feliu](http://web.math.ku.dk/~efeliu/).
 
 Previously, I was a PhD student at [Department de Matemàtiques](https://www.uab.cat/matematiques/) of the [
 Universitat Autònoma de Barcelona](https://www.uab.cat/) under the supervision of [Joaquim Roé](https://mat.uab.cat/~jroe/).
