@@ -25,26 +25,26 @@ On the applied side, I started working on Numerical Algebraic Geometry and Chemi
 
 ## Publications
 
-1. *The Waring rank of binary binomial forms*, with [S. K. Masuti](https://www.cmi.ac.in/people/fac-profile.php?id=shreedevikm).  
+1. *The Waring rank of binary binomial forms*, with [S.K.Masuti](https://www.cmi.ac.in/people/fac-profile.php?id=shreedevikm).  
    * Pac. J. Math. (to appear)  
    * | [ArXiv](https://arxiv.org/abs/2106.15658) |
    <!-- We establish an explicit formula for the Waring rank of every binary binomial form. -->
 
-2. *Inverting catalecticants of ternary quartics*, with [E. Cazzador](https://www.mn.uio.no/math/english/people/aca/elisacaz/) & [R. Homs](https://roserhp.github.io/).  
+2. *Inverting catalecticants of ternary quartics*, with [E.Cazzador](https://www.mn.uio.no/math/english/people/aca/elisacaz/) & [R.Homs](https://roserhp.github.io/).  
    * Le Matematiche (to appear)
    * | [ArXiv](https://arxiv.org/abs/2105.10555) |  
     
-3. *96120: The degree of the linear orbit of a cubic surface*, with [S. Timme](https://sascha.timme.xyz/) & [M. Weinstein](https://math.berkeley.edu/~maddie/).  
+3. *96120: The degree of the linear orbit of a cubic surface*, with [S.Timme](https://sascha.timme.xyz/) & [M.Weinstein](https://math.berkeley.edu/~maddie/).  
    * Le Matematiche 75 (2020), no.2, pp. 425--437
-   * | [Bibtex](/bibtex/DegreeOrbitCubic.bib) | [DOI](https://doi.org/10.4418/2020.75.2.2) | [ArXiv](https://arxiv.org/abs/1909.06620) |
+   * | [BibTeX](/bibtex/DegreeOrbitCubic.bib) | [DOI](https://doi.org/10.4418/2020.75.2.2) | [ArXiv](https://arxiv.org/abs/1909.06620) |
    
 4. *On the universal scheme of r-relative clusters of a family*
    * Communications in Algebra 45 (2017), no.6, pp. 2708--2725  
-   * | [Bibtex](/bibtex/BrustengaMoncusi2017.bib) | [DOI](https://doi.org/10.1080/00927872.2016.1175452) | [ArXiv](https://arxiv.org/abs/1408.0552) |
+   * | [BibTeX](/bibtex/BrustengaMoncusi2017.bib) | [DOI](https://doi.org/10.1080/00927872.2016.1175452) | [ArXiv](https://arxiv.org/abs/1408.0552) |
 
 ## Preprints
 
-1. *Disguised toric dynamical systems*, with [G. Craciun](https://people.math.wisc.edu/~craciun/) & [M.-Ş. Sorea](https://sites.google.com/view/mirunastefanasorea/)
+1. *Disguised toric dynamical systems*, with [G.Craciun](https://people.math.wisc.edu/~craciun/) & [M.-Ş.Sorea](https://sites.google.com/view/mirunastefanasorea/)
    * submitted
    * | [ArXiv](https://arxiv.org/abs/2006.01289) |
 
