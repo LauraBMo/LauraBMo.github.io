@@ -51,6 +51,9 @@ On the applied side, I started working on Numerical Algebraic Geometry and Chemi
 2. *The blow up split section family*.  
    * | [ArXiv](https://arxiv.org/abs/1808.03062) |
 
+## Slides from talks
+
+1. [*Pseudomonas Aeruginosa: Virulence vs Biofilm Formation*](/documents/Paeruginosa-SIAM2021.pdf)
 <!-- ## Typography -->
 
 <!-- This is a [link](http://google.com). Something *italics* and something **bold**. -->
