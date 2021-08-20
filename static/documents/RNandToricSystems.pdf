@@ -1,0 +1,655 @@
+\documentclass[english=british,10pt]{beamer}
+
+% \usetheme[progressbar=frametitle]{metropolis}
+% \usepackage{appendixnumberbeamer}
+
+\usepackage{hyperref}
+\hypersetup{%
+colorlinks = true,       % Don't put a box around links
+breaklinks = true,       % Allow line breaks inside links
+urlcolor   = SteelBlue3, % Web addresses
+linkcolor  = Firebrick3, % Cross-references to theorems etc
+citecolor  = OliveDrab4, % Cites
+% DarkOliveGreen4 %Aquamarine4
+}
+%\usepackage[hyperref,x11names]{xcolor}
+
+
+% Two figures side by side
+\usepackage{subfig}
+
+%%% Codificació de font
+%%% More resolution fonts
+\usepackage{lmodern}%
+
+\usepackage[T1]{fontenc} %% Usual
+\usepackage[utf8]{inputenc}
+%\usepackage[english=british]{csquotes}
+
+
+%% If you need symbols beyond the basic set, uncomment this command.
+\usepackage{amssymb}
+% \usepackage{amsmath} % ,amscd
+\usepackage{amsfonts}
+% \usepackage{mathrsfs}
+\usepackage{amsthm}%% It has to be load before cleveref.
+
+%%%%%%%%%%%%%%%%%%%% Chemistry
+%% \usepackage{mhchem}
+\usepackage{chemformula}
+
+
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}{Corollary}[theorem]
+
+\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+
+%\theoremstyle{remark}
+%\newtheorem{remark}[corollary]{Remark}
+
+\usepackage{tikz-cd}
+\usetikzlibrary{3d,calc,shapes,arrows}
+\tikzset{>={Stealth[length=2.5mm,width=1.4mm]}}
+\tikzcdset{
+arrow style       = tikz,
+cramped,
+diagrams          = {>=stealth},
+%diagrams         = {>={Straight Barb[scale=0.8]}},
+row sep/normal    = 2.2em,
+column sep/normal = 2.7em,
+%inner sep        = 0pt,
+%outer sep        = 0pt,
+}
+%\pgfplotsset{compat=1.16}
+
+\let\oldtikzcd=\tikzcd
+\let\endoldtikzcd=\endtikzcd
+%\renewenvironment{tikzcd}{\begin{oldtikzcd}[cells=\displaystyle]}{\end{oldtikzcd}\vspace{-3ex}}
+% \renewenvironment{tikzcd}{\begin{oldtikzcd}}{\end{oldtikzcd}\vspace{-3ex plus 3pt minus 1pt}}
+
+\newcommand*{\ulcorn}[1]{{\ar[#1, phantom, very near start, "\ulcorner" description]}}
+\newcommand*{\urcorn}[1]{{\ar[#1, phantom, very near start, "\urcorner" description]}}
+\newcommand*{\dlcorn}[1]{{\ar[#1, phantom, swap, very near start, "\llcorner" description]}}
+\newcommand*{\drcorn}[1]{{\ar[#1, phantom, swap, very near start, "\lrcorner" description]}}
+\newcommand*{\ncd}{}% To count diagrams with TeXcount
+
+%% See bad boxes and company in the log file or output of pdflatex.
+\showboxdepth=5
+\showboxbreadth=5
+
+
+\setbeamertemplate{frametitle}%
+{\begin{centering}
+    \smallskip
+    \insertframetitle\par
+    %{\normalfont\small\insertframesubtitle}\par
+    \smallskip
+  \end{centering}}
+\setbeamertemplate{itemize item}{$\bullet$}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[text line]{%
+  \hfill\strut{%
+    \scriptsize\sf\color{black!60}%
+    \quad\raisebox{1ex}{\insertframenumber}
+  }%
+  \hfill
+}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\title{Reaction networks and toric systems}
+%\subtitle{parametrising families of}
+\date{23th April 2020}
+\author{Laura Brustenga i Moncusí\newline\newline
+  \scriptsize{joing work with Gheorghe Craciun, Miruna-\c Stefana Sorea}}
+\institute{\includegraphics[width=0.8\textwidth]{NASO.png}}
+\titlegraphic{\vspace{.9cm}\newline\hfill\includegraphics[height=1cm]{ku_logo_dk_h.png}}
+
+\pgfplotsset{compat=1.15}
+\newcommand*{\field}{\Bbbk}           % The fixed field
+\newcommand{\verin}{\mathbin{\rotatebox[origin=c]{90}{$\in$}}}
+\newcommand{\proj}{\mathbb{P}}
+\newcommand{\aff}{\mathbb{A}}
+\newcommand{\comp}{\mathbb{C}}
+\newcommand{\rgez}{\mathbb{R}_{\ge 0}}
+\newcommand{\rgz}{\mathbb{R}_{> 0}}
+\DeclareMathOperator{\bl}{bl}% morphism
+\DeclareMathOperator{\im}{Im}% image
+\DeclareMathOperator{\sch}{Sch}% scheme category
+\DeclareMathOperator{\set}{Set}% Set category
+\DeclareMathOperator{\hilb}{Hilb}% Hilbert functor
+
+\newcommand*{\rightstealtharrow}{%
+  \mathrel{\begin{oldtikzcd}[ampersand replacement=\&, column sep=1.15em]\arrow[r]\&{}\end{oldtikzcd}}}
+
+\newcommand*{\rightstealthsquigarrow}{%
+  \mathrel{\begin{oldtikzcd}[ampersand replacement=\&, column sep=2.1em]\arrow[r,rightsquigarrow]\&{}\end{oldtikzcd}}}
+
+\newcommand*{\rightstealthmapsto}{%
+  \mathrel{\begin{oldtikzcd}[ampersand replacement=\&, column sep=3em]\arrow[r,mapsto]\&{}\end{oldtikzcd}}}
+
+\newcommand*{\rightstealthhookarrow}{%
+  \mathrel{\begin{oldtikzcd}[ampersand replacement=\&, column sep=1.15em]\arrow[r,hook]\&{}\end{oldtikzcd}}}
+
+\newcommand*{\myapplication}[1]{\mspace{-8mu} #1 \mspace{-8mu}} % \! == -3mu
+
+\newcommand*{\from}{{\colon\mspace{-3mu}}\linebreak[0]}       % Colon for f: A --> B
+\renewcommand*{\to}{\myapplication{\rightstealtharrow}}
+\newcommand*{\tomap}{\myapplication{\rightstealthmapsto}}
+\newcommand*{\tosquig}{\myapplication{\rightstealthsquigarrow}}
+\newcommand*{\tohook}{\myapplication{\rightstealthhookarrow}}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+\addtocounter{framenumber}{-1}
+
+\begin{frame}
+  \frametitle{Mass-action Networks: Reaction networks}
+  \begin{columns}[c]
+    \begin{column}{0.5\textwidth}
+      \begin{figure}[h]
+        \includegraphics[width=0.9\textwidth]{SISmodel.png}
+        {SIS epidemiological model}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}[h]
+        \begin{align*}
+          &\ch{2 H + O2 -> 2 H2O}\\
+          &\ch{C + O2 -> CO2}
+        \end{align*}
+        {Combustion}
+      \end{figure}
+    \end{column}
+  \end{columns}
+  \medskip
+  \begin{figure}[b]
+    \centerline{\includegraphics[width=0.5\textwidth]{Krebs-cycle.png}}
+    Krebs' cycle
+  \end{figure}
+  % \begin{center}
+  %   \includegraphics[width=0.6\textwidth]{Krebs-cycle.png}
+  % \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mass-action Networks: Reaction networks}
+  \begin{definition}[]\label{def:RN}
+    A \emph{reaction network} over \(n\) species is a finite directed graph \(G=(V,E)\) with \(V\subseteq \rgez^n\) (also called Euclidean embedded graph).
+  \end{definition}
+  \begin{itemize}
+    \item nodes \(y\in V\) are called \emph{complexes}.
+    \item edges \(y\to y'\in E\) are called \emph{reactions} with \emph{source}
+      \(y\) and \emph{target} \(y'\).
+  \end{itemize}
+  \vfill
+
+  \begin{columns}[c]
+    \begin{column}{0.5\textwidth}
+      \begin{tikzpicture}[scale=1]
+        %% The grid with axes
+        \draw[ultra thin,lightgray](-0.1,-0.1) grid (3.4,3.4);
+        \draw[-{Stealth},semithick] (-0.2,0) -- (3.6,0) node[right] {$X$};
+        \draw[-{Stealth},semithick] (0,-0.2) -- (0,3.6) node[above] {$Y$};
+        %% Setting nodes https://www.overleaf.com/project/5defa1863c86480001a4554a
+        %% Source nodes
+        \def\nodeinn{1pt}
+        \node[inner sep=\nodeinn, label=below left:{$y_1$}](A) at (3,0) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_2$}](B) at (2,1) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_3$}](C) at (1,2) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_4$}](D) at (0,3) {};
+        \def\shf{0.2ex};
+        \foreach \s/\t in {A/B,C/D}{
+          \draw[fill] (\s) circle (1.5pt);
+          \draw[fill] (\t) circle (1.5pt);
+          \draw[->,transform canvas={xshift=\shf,yshift=\shf},very thick, orange] (\s) -- (\t);
+          \draw[->,transform canvas={xshift=-\shf,yshift=-\shf},very thick, orange] (\t) -- (\s);}
+      \end{tikzpicture}
+
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}[h]
+        \begin{align*}
+          &\ch{3 Y <=> 2 Y + X}\\
+          &\ch{Y + 2 X<=> 3 X}
+        \end{align*}
+        {Chemical representation}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mass-action Networks: Law of mass-action}
+
+  \begin{itemize}
+    \item Modelling \emph{time-evolution} of the concentrations of the species.
+  \end{itemize}
+
+  \begin{block}{Law of mass-action}
+    The rate of a reaction is proportional to the product of the concentrations
+    of the species in the source.
+  \end{block}
+  \onslide+<2->
+  \[
+    \ch{B + G -> BG}
+  \]
+  \begin{overprint}
+    \onslide<2>
+    \begin{itemize}
+      \item Collision theory
+    \end{itemize}
+    \begin{figure}[h]
+      \centerline{\includegraphics[]{Molecular-collisions.jpg}}
+    \end{figure}
+
+    \onslide<3>
+    \begin{itemize}
+      \item Collision theory
+        \begin{itemize}
+          \item The rate for a gas-phase reaction, assuming the hard-sphere model, is
+            \[
+            x_Bx_{G}\sigma_{B,G}\sqrt{\frac{8\kappa T}{\pi \mu_{B,G}}}\rho \exp\Bigl(\frac{-E_a}{RT}\Bigr)
+            \]
+        \end{itemize}
+    \end{itemize}
+
+    \onslide<4>
+    \begin{itemize}
+      \item Collision theory
+        \begin{itemize}
+          \item The rate for a gas-phase reaction, assuming the hard-sphere model, is
+            \[
+            x_Bx_{G}\sigma_{B,G}\sqrt{\frac{8\kappa T}{\pi \mu_{B,G}}}\rho \exp\Bigl(\frac{-E_a}{RT}\Bigr)=kx_Bx_G
+            \] where \(k\) is the \emph{reaction rate constant}.
+        \end{itemize}
+    \end{itemize}
+
+    \onslide<5>
+      \begin{align*}
+        \dot{x}_{BG}&=kx_Bx_G\\
+        \dot{x}_{B\phantom{G}}&=-kx_Bx_G\\
+        \dot{x}_{G\phantom{B}}&=-kx_Bx_G
+      \end{align*}
+    % \begin{itemize}
+    %   \item Collision theory
+    %     \begin{itemize}
+    %       \item The rate for a gas-phase reaction, assuming the hard-sphere model, is
+    %         \[
+    %         x_Bx_{G}\sigma_{B,G}\sqrt{\frac{8\kappa T}{\pi \mu_{B,G}}}\rho \exp\Bigl(\frac{-E_a}{RT}\Bigr)=kx_Bx_G=\dot{x}_{BG}
+    %         \] where \(k\) is the \emph{reaction rate constant}.
+    %     \end{itemize}
+    % \end{itemize}
+  \end{overprint}
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Mass-action Networks: Law of mass-action}
+%   \begin{itemize}
+%     \item Modelling \emph{time-evolution} of the concentrations of the species.
+%   \end{itemize}
+%   \vfill
+
+%   \begin{columns}[c]
+%     \begin{column}{0.5\textwidth}
+%       \[
+%         \ch{B + G -> BG}
+%       \]
+%       \begin{align*}
+%         \dot{x}_{BG}&=kx_Bx_G\\
+%         \dot{x}_{B}&=-kx_Bx_G\\
+%         \dot{x}_{G}&=-kx_Bx_G
+%       \end{align*}
+%     \end{column}
+%     \begin{column}{0.5\textwidth}
+%         \begin{align*}
+%           &\ch{3 Y <=> 2 Y + X}\\
+%           &\ch{Y + 2 X <=> 3 X}
+%         \end{align*}
+%       \begin{align*}
+%         \dot{x}&=k_1y^3-k_2y^2x+k_3yx^2-k_4x^3\\
+%         \dot{y}&=-k_1y^3+k_2y^2x-k_3yx^2+k_4x^3
+%       \end{align*}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
+
+\begin{frame}
+  \frametitle{Mass-action network and system}
+  \begin{definition}\label{def:ma-network}
+    A \emph{mass-action network} \((V,E,K)\) is a reaction network \((V,E)\)
+    with labels on edges \(K=\{k_{y\to y'}\}_{y\to y'\in E}\), called \emph{reaction rate constants}.
+    \medskip
+
+    The associated \emph{mass-action system} is the dynamical system
+\[
+  \dot{\mathbf{x}} = \sum_{y\to y'\in E}k_{y\to y'}(y'-y)\mathbf{x}^y =:F_{K}(\mathbf{x})
+\]
+  \end{definition}
+  \vfill
+  \begin{align*}
+    &\ch{3 Y <=> 2 Y + X}\\
+    &\ch{Y + 2 X <=> 3 X}
+  \end{align*}
+  \begin{align*}
+    \dot{x}&=k_1y^3-k_2y^2x+k_3yx^2-k_4x^3\\
+    \dot{y}&=-k_1y^3+k_2y^2x-k_3yx^2+k_4x^3
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Complex balance condition}
+  \begin{itemize}
+    \item Idea: the in-flow and the out-flow at every complex is balanced.
+  \end{itemize}
+  \begin{tikzpicture}[scale=0.7]
+    %% The grid with axes
+    \draw[ultra thin,lightgray](-0.1,-0.1) grid (3.6,2.4);
+    \draw[-{Stealth},semithick] (-0.2,0) -- (3.6,0) node[right] {$X$};
+    \draw[-{Stealth},semithick] (0,-0.2) -- (0,2.6) node[above] {$Y$};
+    %% Source nodes (with their labels)
+    \node[label=below left:{$y_1$}](A) at (0,0) {};
+    \node[label=below right:{$y_2$}](B) at (3,0) {};
+    \node[label=above right:{$y_3$}](C) at (3,2) {};
+    \node[label=above left:{$y_4$}](D) at (0,2) {};
+    %% Draw points
+    \foreach \p in {A,B,C,D}{
+      \fill (\p) circle (1.5pt);}
+    %% Double arrows horizontal
+    \def\shft{0.5ex};
+    \foreach \s/\t in {A/B,C/D}{
+      \draw[->,transform canvas={yshift=-\shft},very thick, cyan] (\s) -- (\t);
+      \draw[<-,transform canvas={yshift=\shft},very thick,cyan] (\s) -- (\t);
+    }
+    %% Double arrows vertical
+    \foreach \s/\t in {B/C,D/A}{
+      \draw[->,transform canvas={xshift=-\shft},very thick, cyan] (\s) -- (\t);
+      \draw[<-,transform canvas={xshift=\shft},very thick,cyan] (\s) -- (\t);
+    }
+  \end{tikzpicture}
+  \vfill
+
+  \begin{definition}\label{def:CB-condition}
+    A mass-action network \((V,E,K)\) is \emph{complex balanced} if there exists
+    \(\mathbf{x}^{*}\in \rgz^n\) satisfying
+    \[
+      \sum_{y_0\to y\in E}k_{y_0\to y}(\mathbf{x}^{*})^{y_0}=\sum_{y\to y_0\in E}k_{y\to y_0}(\mathbf{x}^{*})^y
+    \] for every complex \(y_0\in V\). Then \(\mathbf{x}^{*}\) is called a
+    \emph{complex balanced steady state} and the associated system is called
+    \emph{toric dynamical system}.
+  \end{definition}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Complex balance condition}
+  \begin{columns}[c]
+    \begin{column}{0.5\textwidth}
+      \begin{tikzpicture}[scale=1]
+        %% The grid with axes
+        \draw[ultra thin,lightgray](-0.1,-0.1) grid (3.4,3.4);
+        \draw[-{Stealth},semithick] (-0.2,0) -- (3.6,0) node[right] {$X$};
+        \draw[-{Stealth},semithick] (0,-0.2) -- (0,3.6) node[above] {$Y$};
+        %% Setting nodes https://www.overleaf.com/project/5defa1863c86480001a4554a
+        %% Source nodes
+        \def\nodeinn{1pt}
+        \node[inner sep=\nodeinn, label=below left:{$y_1$}](A) at (3,0) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_2$}](B) at (2,1) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_3$}](C) at (1,2) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_4$}](D) at (0,3) {};
+        \node at (2.5,0.5) [below left]{$k_4$};
+        \node at (2.5,0.5) [above right]{$k_3$};
+        \node at (0.5,2.5) [below left]{$k_2$};
+        \node at (0.5,2.5) [above right]{$k_1$};
+        \def\shf{0.2ex};
+        \foreach \s/\t in {A/B,C/D}{
+          \draw[fill] (\s) circle (1.5pt);
+          \draw[fill] (\t) circle (1.5pt);
+          \draw[->,transform canvas={xshift=\shf,yshift=\shf},very thick, orange] (\s) -- (\t);
+          \draw[->,transform canvas={xshift=-\shf,yshift=-\shf},very thick, orange] (\t) -- (\s);}
+      \end{tikzpicture}
+
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{align*}
+        k_1y^3=k_2y^2x & & k_1y-k_2x=0 \\
+        k_4x^3=k_3x^2y & & k_4x-k_3y=0
+      \end{align*}
+      For a complex balanced steady state
+      \begin{align*}
+        [k_1:k_2]=[x:y]=[k_3:k_4]
+      \end{align*}
+    \end{column}
+  \end{columns}
+  \vfill
+
+  That is, this mass-action network is complex balanced if and only if
+  \[
+    k_1k_4-k_3k_2=0
+  \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Disguised toric systems}
+  \begin{itemize}
+    \item Is it possible that, given \((k_1,\dots,k_4)\) such that
+      \[
+      k_1k_4-k_3k_2\not=0,
+      \] there exists another mass-action network giving the same associated system
+      and being complex balanced?
+  \end{itemize}
+
+  \begin{definition}\label{def:disguised-toric}
+    A mass-action network \((V,E,K)\) is \emph{disguised toric} if there exists a
+    complex balanced mass-action network \((V',E',K')\) such that
+    \[
+      F_K(\mathbf{x})=F_{K'}(\mathbf{x})
+    \]
+  \end{definition}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Disguised toric systems}
+  \begin{columns}[c]
+    \begin{column}{0.35\textwidth}
+      \begin{tikzpicture}[scale=0.8]
+        %% The grid with axes
+        \draw[ultra thin,lightgray](-0.1,-0.1) grid (3.4,3.4);
+        \draw[-{Stealth},semithick] (-0.2,0) -- (3.6,0) node[right] {$X$};
+        \draw[-{Stealth},semithick] (0,-0.2) -- (0,3.6) node[above] {$Y$};
+        %% Setting nodes https://www.overleaf.com/project/5defa1863c86480001a4554a
+        %% Source nodes
+        \def\nodeinn{1pt}
+        \node[inner sep=\nodeinn, label=below left:{$y_1$}](A) at (3,0) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_2$}](B) at (2,1) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_3$}](C) at (1,2) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_4$}](D) at (0,3) {};
+        \node at (2.5,0.5) [below left]{$k_3$};
+        \node at (2.5,0.5) [above right]{$k_4$};
+        \node at (0.5,2.5) [below left]{$k_1$};
+        \node at (0.5,2.5) [above right]{$k_2$};
+        \def\shf{0.2ex};
+        \foreach \s/\t in {A/B,C/D}{
+          \draw[fill] (\s) circle (1.5pt);
+          \draw[fill] (\t) circle (1.5pt);
+          \draw[->,transform canvas={xshift=\shf,yshift=\shf},very thick, orange] (\s) -- (\t);
+          \draw[->,transform canvas={xshift=-\shf,yshift=-\shf},very thick, orange] (\t) -- (\s);}
+      \end{tikzpicture}
+
+    \end{column}
+    \begin{column}{0.65\textwidth}
+      The associated system
+      \begin{align*}
+        \dot{x}&=k_1y^3-k_2y^2x+k_3yx^2-k_4x^3\\
+        \dot{y}&=-k_1y^3+k_2y^2x-k_3yx^2+k_4x^3
+      \end{align*}
+      The steady states variety
+      \begin{align*}
+        0&=-k_1y^3+k_2y^2x-k_3yx^2+k_4x^3
+      \end{align*}
+      Let \(\Delta(k_1,\dots,k_4)\) be the discriminant.
+    \end{column}
+  \end{columns}
+  \vfill
+  \begin{overprint}
+      \onslide<1>
+      \begin{columns}[c]
+        \begin{column}{0.5\textwidth}
+          \begin{tikzpicture}[scale=0.8]
+            %% The grid with axes
+            \draw[ultra thin,lightgray](-0.1,-0.1) grid (3.4,3.4);
+            \draw[-{Stealth},semithick] (-0.2,0) -- (3.6,0) node[right] {$x$};
+            \draw[-{Stealth},semithick] (0,-0.2) -- (0,3.6) node[above] {$y$};
+            %% Setting nodes https://www.overleaf.com/project/5defa1863c86480001a4554a
+            %% Source nodes
+            \node at (1.5,0) [below]{$\Delta>0$};
+            \draw (0,0) -- (1,3.6);
+            \draw (0,0) -- (2.3,3.6);
+            \draw (0,0) -- (3.6,1);
+          \end{tikzpicture}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+          \begin{tikzpicture}[scale=0.8]
+            %% The grid with axes
+            \draw[ultra thin,lightgray](-0.1,-0.1) grid (3.4,3.4);
+            \draw[-{Stealth},semithick] (-0.2,0) -- (3.6,0) node[right] {$x$};
+            \draw[-{Stealth},semithick] (0,-0.2) -- (0,3.6) node[above] {$y$};
+            %% Setting nodes https://www.overleaf.com/project/5defa1863c86480001a4554a
+            %% Source nodes
+            \node at (1.5,0) [below]{$\Delta<0$};
+            \draw (0,0) -- (2.3,3.6);
+          \end{tikzpicture}
+        \end{column}
+      \end{columns}
+      \onslide<2>
+      \begin{columns}[c]
+        \begin{column}{0.5\textwidth}
+          \begin{tikzpicture}[scale=0.8]
+            %% The grid with axes
+            \draw[ultra thin,lightgray](-0.1,-0.1) grid (3.4,3.4);
+            \draw[-{Stealth},semithick] (-0.2,0) -- (3.6,0) node[right] {$x$};
+            \draw[-{Stealth},semithick] (0,-0.2) -- (0,3.6) node[above] {$y$};
+            %% Setting nodes https://www.overleaf.com/project/5defa1863c86480001a4554a
+            %% Source nodes
+            \node at (1.5,0) [below]{$\Delta<0$};
+            \draw (0,0) -- (2.3,3.6);
+          \end{tikzpicture}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+          Of course,
+          \[
+            k_1k_4-k_2k_3=0 \mbox{ implies } \Delta<0
+          \] But, does \(\Delta<0\) imply disguised toric?
+        \end{column}
+      \end{columns}
+    \end{overprint}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Disguised toric systems}
+  \begin{columns}[c]
+    \begin{column}{0.5\textwidth}
+      \begin{tikzpicture}[scale=0.8]
+        %% The grid with axes
+        \draw[ultra thin,lightgray](-0.1,-0.1) grid (3.4,3.4);
+        \draw[-{Stealth},semithick] (-0.2,0) -- (3.6,0) node[right] {$X$};
+        \draw[-{Stealth},semithick] (0,-0.2) -- (0,3.6) node[above] {$Y$};
+        %% Setting nodes https://www.overleaf.com/project/5defa1863c86480001a4554a
+        %% Source nodes
+        \def\nodeinn{1pt}
+        \node[inner sep=\nodeinn, label=below left:{$y_1$}](A) at (3,0) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_2$}](B) at (2,1) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_3$}](C) at (1,2) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_4$}](D) at (0,3) {};
+        \node at (2.5,0.5) [below left]{$k_3$};
+        \node at (2.5,0.5) [above right]{$k_4$};
+        \node at (0.5,2.5) [below left]{$k_1$};
+        \node at (0.5,2.5) [above right]{$k_2$};
+        \def\shf{0.2ex};
+        \foreach \s/\t in {A/B,C/D}{
+          \draw[fill] (\s) circle (1.5pt);
+          \draw[fill] (\t) circle (1.5pt);
+          \draw[->,transform canvas={xshift=\shf,yshift=\shf},very thick, orange] (\s) -- (\t);
+          \draw[->,transform canvas={xshift=-\shf,yshift=-\shf},very thick, orange] (\t) -- (\s);}
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{tikzpicture}[scale=0.8]
+        %% The grid with axes
+        \draw[ultra thin,lightgray](-0.1,-0.1) grid (3.4,3.4);
+        \draw[-{Stealth},semithick] (-0.2,0) -- (3.6,0) node[right] {$X$};
+        \draw[-{Stealth},semithick] (0,-0.2) -- (0,3.6) node[above] {$Y$};
+        %% Setting nodes https://www.overleaf.com/project/5defa1863c86480001a4554a
+        %% Source nodes
+        \def\nodeinn{1pt}
+        \node[inner sep=\nodeinn, label=below left:{$y_1$}](A) at (3,0) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_2$}](B) at (2,1) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_3$}](C) at (1,2) {};
+        \node[inner sep=\nodeinn, label=below left:{$y_4$}](D) at (0,3) {};
+        \node at (2.5,0.5) [below left]{$k'_3$};
+        \node at (2.5,0.5) [above right]{$k'_4$};
+        \node at (0.5,2.5) [below left]{$k'_1$};
+        \node at (0.5,2.5) [above right]{$k'_2$};
+        \node at (1.5,1.5) [below left]{$k'_5$};
+        \node at (1.5,1.5) [above right]{$k'_6$};
+        \def\shf{0.2ex};
+        \foreach \s/\t in {A/B,C/D}{
+          \draw[fill] (\s) circle (1.5pt);
+          \draw[fill] (\t) circle (1.5pt);
+          \draw[->,transform canvas={xshift=\shf,yshift=\shf},very thick, orange] (\s) -- (\t);
+          \draw[->,transform canvas={xshift=-\shf,yshift=-\shf},very thick, orange] (\t) -- (\s);}
+        \foreach \s/\t in {B/C}{
+          \draw[fill] (\s) circle (1.5pt);
+          \draw[fill] (\t) circle (1.5pt);
+          \draw[->,transform canvas={xshift=\shf,yshift=\shf},very thick, purple] (\s) -- (\t);
+          \draw[->,transform canvas={xshift=-\shf,yshift=-\shf},very thick, purple] (\t) -- (\s);}
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+  \vfill
+
+  Assume \((k_1,\dots,k_4)\) are fixed and pick, for any \(k'_5,k'_6\in\rgz\),
+  \begin{align*}
+    k'_3=k_3+k'_6 & & k'_1=k_1\\
+    k'_2=k_2+k'_5 & & k'_4=k_4
+  \end{align*}
+  Then
+  \[
+    F_K(x,y)=F_{K'}(x,y)
+  \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Disguised toric systems}
+  Now, we may pullback the complex balance condition for \((V',E',K')\) to \(K\):
+      \begin{align*}
+        k_1y-(k_2+k'_5)x=0 & & k_4x-(k_3+k'_6)y=0\\
+                               k'_5y-k'_6x=0 & &
+      \end{align*}
+
+      \begin{theorem}\label{thr:fljsd}
+        There exist \((x,y)\in\rgz^2\) and \((k'_5,k'_6)\in\rgz^2\) satisfying
+        the previous equations if and only if
+\[
+  k_1k_4-k_2k_3< 0.
+\] That is, our original mass-action network is disguised toric when
+\(k_1k_4-k_2k_3\le 0\) (in fact, we can show it is also necessary).
+\end{theorem}
+\end{frame}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,452 @@
+#-*- mode: org -*-
+#+STARTUP: overview
+#+STARTUP: latexpreview
+
+
+* Setting
+
+  We consider polynomials $F=f_1,\dots,f_k\in \mathbb{K}[x_1,\dots,x_n]$ (where $\mathbb{K}$ is $\mathbb{C}$ or $\mathbb{R}$).  
+  The system of equations $F=0$ defining $V\subseteq \mathbb{K}^n$.  
+  And a point $p\in \mathbb{K}^n$ with $F(p)=0$ (or $p\in V$)
+  
+* Local dimension of an algebraic set (degrees of freedom).
+
+  - [[https://en.wikipedia.org/wiki/Dimension_of_an_algebraic_variety][Wikipeida: Several notions of dimension of an algebraic set]]
+
+** The definition we consider
+
+The _local dimension_ of $F$ (or $V$) at $p$ , denoted $\dim_p V$, is the number of hyperplanes in general position and containing $p$
+which are needed to have an intersection with $V$ for which $p$ is an isolated point.
+
+Here General position is related on how they intersect with respect to the tangent space of $V$ at $p$ and between them. 
+** Examples
+*** Extreme cases
+    - $\mathbb{K}^n$ has dimension $n$ at any point.
+
+    - if $V=\{p_1,\dots,p_r\}$, it has dimension zero at any point.
+*** A typical case
+**** A curve in $\mathbb{C}^3$ 
+
+              $$ F = \begin{cases} x-y^2 \\ x-z^2 \end{cases} \in \mathbb{C}[x,y,z]$$
+
+   ## The curve
+   (x-y^2)^2+(x-z^2)^2-0.01
+   ## The curve intersected
+   ((x-y^2)^2+(x-z^2)^2-0.01)*(x-1)
+
+**** A (cubic) surface $V$ in $\mathbb{C}^3$
+
+                $$ F = xy^2-yz^2-x^2 \in \mathbb{C}[x,y,z]$$
+
+   Observe that
+
+   $$ (1,1,0)\in V$$
+
+   x*y^2-y*z^2-x^2
+
+   ## The curve
+   (x*y^2-y*z^2-x^2)^2+(2*(x-1)-3*(y-1)+z)^2-0.001
+   ## The union
+   (x*y^2-y*z^2-x^2)*(2*(x-1)-3*(y-1)+z)
+
+   ## The curve
+   (x*y^2-y*z^2-x^2)^2+((x-1)+(y-1)+z)^2-0.001
+   ## The union
+   (x*y^2-y*z^2-x^2)^2+((x-1)+(y-1)+z)^2-0.001
+   
+   ## The union of the curves
+   ((x*y^2-y*z^2-x^2)^2+((x-1)+(y-1)+z)^2-0.001)*((x*y^2-y*z^2-x^2)^2+(2*(x-1)-3*(y-1)+z)^2-0.001)
+
+*** Local dimension
+
+              $$ F = \begin{cases} xy \\ xz \end{cases} \in \mathbb{C}[x,y,z]$$
+
+
+
+## The algebraic set
+(x*y)^2+(x*z)^2-0.0001
+
+
+
+
+
+
+
+
+              $$ \dim_pV = \begin{cases} 2 & p = (0,y_0,z_0) \\ 1 & p=(x_0,0,0)\, x_0\not=0 \end{cases}  $$
+
+
+*** Non-general position 
+
+   - Cylinder over a parabola
+
+        $$ F = x-y^2 \in \mathbb{C}[x,y,z]$$
+
+
+    (x-y^2)*x*y
+    (x-y^2)*x*z
+
+*** Non-complete intersection
+          Rational normal curve (RNC)
+
+     
+                       $$ F = \begin{cases} xz-y^2 \\ x-yz \\ y-z^2 \end{cases} $$ 
+
+## The curve
+(x*z-y^2)^2+(x-y*z)^2+(y-z^2)^2-0.1
+## The union
+(x*z-y^2)*(x-y*z)*(y-z^2)
+
+*** Over the reals
+
+    - The bell surface
+
+        $$ F = x^2+y^3-y^2+z^2 \in \mathbb{C}[x,y,z]$$
+
+(x^2+y^3-y^2+z^2)*(-0.4267465396586335*x - 0.8521317796184341*y - 0.17095689149126342*z)
+
+** (Trivial) bound for the dimension
+
+   - Each $f_i$ decreases at most by one the dimension
+   - The dimension is always lower than the dimension of the tangent space
+
+
+
+                                                   $$ n-k \le \dim_p V\le \dim T_p V=n-rank(J_F(p)) $$ 
+
+
+* Numerical Algebraic Geometry
+
+** Homotopy continuation
+
+ - An approach to solving systems of equations $F$ with $k\ge n$ by tracking the solutions of "nearby" systems of equations.
+
+ - To solve $F=0$:
+
+   - Introduce a parameter $0\le t\le 1$.
+ 
+   - For each $t$ construct a system $\mathcal{F}_t$
+ 
+   - $\mathcal{F}_0$ should be easy to solve and $\mathcal{F}_1=F$.
+
+Then 
+   - Starting at $t=0$ and increasing $t$ by a small step size, we solve each $\mathcal{F}_t$ in turn until we arrive at $t=1$.
+   
+   - To solve $\mathcal{F}_{t+\Delta_t}$, we use a _predictor-corrector_ scheme from the solutions of $\mathcal{F}_t$
+     
+      (We will illustrate predictor-corrector scheme with an example)  
+
+** An example of homotopy (the total degree homotopy)
+ 
+   If $G$ is an easy system to solve, for example when $k=n$ we may consider 
+
+
+                                     $$ G = \begin{cases} x_1^{\deg(f_1)}-1 \\ \dots \\ x_n^{\deg(f_n)}-1 \end{cases} $$
+
+   And an homotopy
+
+
+                              $$ H(\mathbf{x},t) = (1-t)G\,+\,tF $$  
+
+* Algorithm for the local dimension
+
+   _Input_: A system $F$ and a point $p\in V$ (+ tolerance parameters)  
+
+  _Output_: Integer candidate for the local dimension of $V$ at $p$.
+ 
+** The core
+  
+    Distinguish whether a point $p\in V$ is isolated or not.
+    
+    _Input_: A system $F$ and a point $p\in V$ (+ tolerance parameters)
+
+   _Output_: Boolean 
+               - true if $p$ is an isolated point of $V$.
+               - false otherwise.
+     
+    Consider the RNC $$ F = \begin{cases} xz-y^2 \\ x-yz \\ y-z^2 \end{cases} $$
+
+
+*** Initial steps
+
+#+begin_src julia :session *julia*
+f = [x*z-y^2, x-y*z, 1.0*y-z^2]
+g = SPSystem(f, vars)
+#+end_src
+
+     The (trivial) lower bound
+
+                                  $$ 3-3=0\le \dim V $$
+
+     Pick a point $p=(0,0,0)$ and compute the (trivial) upper bound
+ 
+#+begin_src julia :session *julia*
+p = [0, 0, 0];
+J = jacobian(g, p)
+sing = svd(J; full=true);
+rankJ = searchsortedlast(sing.S, zero; rev=true)
+Zvects = sing.V[:, (rankJ +1):3]
+#+end_src
+
+So,
+
+                                  $$ 0\le \dim_p V \le 3-2=1 $$
+
+*** By hand (predictor-corrector scheme)
+
+    First, we generate a predictor $x_0=p+\eta v_0$ where $v_0\in T_pV$ and $\eta$ is a tolarence parameter.
+    Second, we "correct" the prediction to an actual solution of $F=0$.
+  
+#+begin_src julia :session *julia*
+v₀ = Zvects[:,end];
+η = 1e1;
+x₀ = η*[0,0,10]; 
+
+v, converged, acc = newton_new(g,x₀; max_iters=100, tol=zero)
+#+end_src
+
+*** Tracking with an homotopy
+
+     Build an homotopy, for example
+                                               $$ v_0\cdot (\mathbf{x}-(p+tv_0))$$
+
+     And let the tracking work to HomotopyContinuation.jl
+
+#+begin_src julia :session *julia*
+@polyvar t
+hplane = sum([v₀[i]*(vars[i] - (p[i]+ t*η*v₀[i])) for i in 1:3]);
+H = f;
+push!(H,hplane)
+
+tracker = pathtracker(H; parameters=[t] , generic_parameters=[0]);
+result = track(tracker, p; target_parameters=[1])
+#+end_src
+
+*** Intersecting with a shell surrounding our point $p$
+   
+   (We will illustrate it in the following exmaple)
+
+** Reducing to the core case
+
+    Slogan: "Intersect with hyperplanes" 
+
+Consider $\mathbb{C}^{3\times 5}$ the space of 3-by-5 matrices.
+
+
+$$
+\left( \begin{array}{ccccc}
+x_{1,1} & x_{1,2} & x_{1,3} & x_{1,4} & x_{1,5} \\
+x_{2,1} & x_{2,2} & x_{2,3} & x_{2,4} & x_{2,5} \\
+x_{3,1} & x_{3,2} & x_{3,3} & x_{3,4} & x_{3,5} \\
+\end{array}\right)
+$$ 
+ 
+Consider the system of three maximal mainors
+
+#+begin_src julia :session *julia*
+@polyvar x[1:3,1:5]
+
+f1 = det(x[1:3,1:3])
+f2 = det(x[1:3,2:4])
+f3 = det(x[1:3,3:5])
+
+D = [f1, f2, f3];
+d = SPSystem(D)
+#+end_src
+
+      The (trivial) lower bound
+
+                                   $$ 15-3 = 12 \le \dim V$$
+
+
+
+     Generate the matrix of rank 1 (it will be our point $p\in V$)
+
+#+begin_src julia :session *julia*
+    M = 1e-3*DefMatFloat(5, 3, 2)'
+    sing = svd(M; full=true);
+    rankJ = searchsortedlast(sing.S, zero; rev=true)
+
+    p = vec(M);
+    subs(D, x[:] => p)
+#+end_src
+
+
+   Compute the (trivial) upper bound
+
+#+begin_src julia :session *julia*
+  J = jacobian(d, p)
+  sing = svd(J; full=true);
+  rankJ = searchsortedlast(sing.S, zero; rev=true)
+#+end_src
+
+   So,
+
+                 $$ 12 \le \dim_p V\le 15$$
+
+   We fix a length $L=0.5$ to determine whether there is something around the point or not
+   We build a shell surrounding our point $p$, in this case just an euclidean ball.
+ 
+#+begin_src julia :session *julia*
+    L = 5e-1;
+    shell = sum((x[:] - p).^2)-L^2;
+#+end_src
+
+    We fix a random linear subspace $h\subseteq \mathbb{C}^{15}$ of codimension 14
+    And intersect it with our system $F$ and the shell.  
+
+#+begin_src julia :session *julia*
+    h = randn(14,15)*(x[:]-p);
+    F = vcat(D, h, shell);
+    r = solve(F;system=FPSystem)
+#+end_src
+
+
+
+
+    ## Result with 0 solutions
+    ## ==================================
+    ## • 0 non-singular solutions (0 real)
+    ## • 0 singular solutions (0 real)
+    ## • 54 paths tracked
+    ## • random seed: 28246
+
+So,
+
+                 $$ 12 \le \dim_p V\le 14$$
+
+
+#+begin_src julia :session *julia*
+    h = randn(13,15)*(x[:]-p);
+    F = vcat(D, h, shell);
+    r = solve(F;system=FPSystem)
+#+end_src
+
+
+
+
+    ## Result with 0 solutions
+    ## ==================================
+    ## • 0 non-singular solutions (0 real)
+    ## • 0 singular solutions (0 real)
+    ## • 54 paths tracked
+    ## • random seed: 474426
+
+So,
+
+                 $$ 12 \le \dim_p V\le 13$$
+
+#+begin_src julia :session *julia*
+    h = randn(11,15)*(x[:]-p);
+    F = vcat(D, h, shell);
+    r = solve(F;system=FPSystem)
+#+end_src
+
+
+    ## Result with 8 solutions
+    ## ==================================
+    ## • 8 non-singular solutions (1 real)
+    ## • 0 singular solutions (0 real)
+    ## • 54 paths tracked
+    ## • random seed: 712040
+
+#+begin_src julia :session *julia*
+check_distance(r,p)
+#+end_src
+
+So,
+
+                           $$ \dim_p V = 13$$
+
+
+#+begin_src julia :session *julia*
+    h = randn(11,15)*(x[:]-p);
+    F = vcat(D, h, shell);
+    r = solve(F;system=FPSystem)
+#+end_src
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+* Thank you for your attention!
+
+*** Case 1: a rank 2 matrix
+
+    Generate the matrix
+
+  #+begin_src julia :session *julia*
+  M = 1e-3*DefMatFloat(5, 3, 1)'
+  sing = svd(M; full=true);
+  rankJ = searchsortedlast(sing.S, zero; rev=true)
+
+  p = vec(M);
+  subs(D, x[:] => p)
+  #+end_src
+
+   Compute the (trivial) upper bound
+
+#+begin_src julia :session *julia*
+  J = jacobian(d, p)
+  sing = svd(J; full=true);
+  rankJ = searchsortedlast(sing.S, zero; rev=true)
+#+end_src
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Local Variables:
+# eval: (setq org-format-latex-options (plist-put org-format-latex-options :scale 3.0))
+# End:
+
+#+begin_src elisp
+    (defun org-babel-load-session:julia (session body params)
+      "Load BODY into SESSION."
+      (save-window-excursion
+        (let ((buffer (org-babel-prep-session:julia session params)))
+          (with-current-buffer buffer
+            (goto-char (process-mark (get-buffer-process (current-buffer))))
+            (insert (org-babel-chomp body))
+            (inferior-ess-send-input))
+          buffer)))
+
+    (defadvice org-babel-load-in-session (around save-window activate)
+      (save-excursion
+        ad-do-it))
+
+  (define-key org-mode-map (kbd "<C-M-return>") #'org-babel-load-in-session)
+#+end_src
+
+#+RESULTS:
+: org-babel-load-in-session
+ 

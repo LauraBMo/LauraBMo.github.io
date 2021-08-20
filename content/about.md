@@ -12,7 +12,7 @@ Previously, I was a PhD student at [Department de Matemàtiques](https://www.uab
 Universitat Autònoma de Barcelona](https://www.uab.cat/) under the supervision of [Joaquim Roé](https://mat.uab.cat/~jroe/).
 
 
-* My [PhD Thesis](/documents/BrustengaMoncusiL-thesis.pdf)
+* My [PhD Thesis](/documents/BrustengaMoncusiL-thesis.pdf), and the slides from [my defense](/documents/thesisdefese.pdf).
 
 
 
@@ -54,6 +54,14 @@ On the applied side, I started working on Numerical Algebraic Geometry and Chemi
 ## Slides from talks
 
 1. [*Pseudomonas Aeruginosa: Virulence vs Biofilm Formation*](/documents/Paeruginosa-SIAM2021.pdf)
+
+2. [*Reaction networks and toric systems*](/documents/RNandToricSystems.pdf)
+
+3. [*Julia intro for Algebraic Geometers*](/documents/JuliaIntro.org)
+
+4. [*Computing the local dimension*](/documents/localdim.org)
+
+
 <!-- ## Typography -->
 
 <!-- This is a [link](http://google.com). Something *italics* and something **bold**. -->
