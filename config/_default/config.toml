@@ -12,7 +12,8 @@ enableRobotsTXT = true
 
 # Theme's
 disableKinds = ["taxonomy", "term"]
-math = false          # enable KaTeX (https://katex.org/) globally
+# Now it always enabled
+# math = true # enable KaTeX (https://katex.org/) globally
 
 
 # Mine
