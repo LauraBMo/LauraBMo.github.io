@@ -12,7 +12,7 @@ Previously, I was a PhD student at [Department de Matemàtiques](https://www.uab
 Universitat Autònoma de Barcelona](https://www.uab.cat/) under the supervision of [Joaquim Roé](https://mat.uab.cat/~jroe/).
 
 
-* My [PhD Thesis](/documents/BrustengaMoncusiL-thesis.pdf), and the slides from [my defense](/documents/thesisdefese.pdf).
+* My [PhD Thesis](/documents/BrustengaMoncusiL-thesis.pdf), and the slides from [the defense](/documents/thesisdefese.pdf).
 
 
 
@@ -45,8 +45,8 @@ On the applied side, I started working on Numerical Algebraic Geometry and Chemi
 ## Preprints
 
 1. *Disguised toric dynamical systems*, with [G.Craciun](https://people.math.wisc.edu/~craciun/) & [M.-Ş.Sorea](https://sites.google.com/view/mirunastefanasorea/).  
-   * submitted
-   * | [ArXiv](https://arxiv.org/abs/2006.01289) |
+   * under revision
+   * | [ArXiv](https://arxiv.org/abs/2006.01289) | [Figures](/papersextras/disguised1)
 
 2. *The blow up split section family*.  
    * | [ArXiv](https://arxiv.org/abs/1808.03062) |
