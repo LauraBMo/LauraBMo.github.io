@@ -1,9 +1,7 @@
 
 # Disguised toric dynamical systems 
 
-1. 
-
-2. 
+1. Code for Figure 6, generated with POV-Ray [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ```povray
 /*équations :
