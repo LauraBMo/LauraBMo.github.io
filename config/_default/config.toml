@@ -9,6 +9,7 @@ languageCode = "en"
 # Hugo's
 enableEmoji = true
 enableRobotsTXT = true
+EnableGitInfo = true
 
 # Theme's
 disableKinds = ["taxonomy", "term"]
