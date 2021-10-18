@@ -11,6 +11,7 @@ I am a postdoc at [Department of Mathematical Sciences](https://www.math.ku.dk/e
 Previously, I was a PhD student at [Department de Matemàtiques](https://www.uab.cat/matematiques/) of the [
 Universitat Autònoma de Barcelona](https://www.uab.cat/) under the supervision of [Joaquim Roé](https://mat.uab.cat/~jroe/).
 
+I also spent four months at [TU Berlin](https://www.tu.berlin/) in the framework of the [Thematic Einstein Semester on Algebraic Geometry](http://ehrhart.math.fu-berlin.de/agplus/), funded by [Sturmfels](https://math.berkeley.edu/~bernd/)' [Einstein foundation](https://www.einsteinfoundation.de/en/) project "Nonlinear Algebra".
 
 * My [PhD Thesis](/documents/BrustengaMoncusiL-thesis.pdf), and the slides from [the defense](/documents/thesisdefese.pdf).
 
