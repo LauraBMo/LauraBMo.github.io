@@ -81,3 +81,6 @@ title = "L. Brustenga i Moncusí"
 
 [markup.goldmark.renderer]
   unsafe = true  # allow raw HTML in markdown files
+
+[frontmatter]
+  lastmod = ['lastmod', ':fileModTime', ':default']
