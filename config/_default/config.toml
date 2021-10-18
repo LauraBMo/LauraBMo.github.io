@@ -9,7 +9,7 @@ languageCode = "en"
 # Hugo's
 enableEmoji = true
 enableRobotsTXT = true
-EnableGitInfo = true
+# EnableGitInfo = true
 
 # Theme's
 disableKinds = ["taxonomy", "term"]
@@ -82,5 +82,5 @@ title = "L. Brustenga i Moncusí"
 [markup.goldmark.renderer]
   unsafe = true  # allow raw HTML in markdown files
 
-[frontmatter]
-  lastmod = ['lastmod', ':fileModTime', ':default']
+# [frontmatter]
+#   lastmod = ['lastmod', ':fileModTime', ':default']
