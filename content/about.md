@@ -14,14 +14,12 @@ Universitat Autònoma de Barcelona](https://www.uab.cat/) under the supervision 
 
 * My [PhD Thesis](/documents/BrustengaMoncusiL-thesis.pdf), and the slides from [the defense](/documents/thesisdefese.pdf).
 
-
-
 ## Research Interest
 
 My research interests are in pure and applied Algebraic Geometry.
 On the pure side, I study the geometry of a locally closed subfunctor of the Hilbert functor
 aiming to obtain sharper upper bounds on the dimension of linear systems of curves on surfaces.
-On the applied side, I started working on Numerical Algebraic Geometry and Chemical Reaction Networks.<br />
+On the applied side, I started working on Numerical Algebraic Geometry and Chemical Reaction Networks.
 
 ## Papers
 
