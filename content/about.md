@@ -18,25 +18,25 @@ I also spent four months at [TU Berlin](https://www.tu.berlin/) in the framework
 ## Papers
 
 1. *Disguised toric dynamical systems*, with [G.Craciun](https://people.math.wisc.edu/~craciun/) & [M.-Ş.Sorea](https://sites.google.com/view/mirunastefanasorea/).  
-   * under revision
-   * | [ArXiv](https://arxiv.org/abs/2006.01289) | [Figures](/papersextras/disguised1)
+   *  Journal of Pure and Applied Algebra 226 (2022), no.8, pp.107035--107059  
+   * | [BibTeX](/bibtex/DisguisedToricDS.bib) | [DOI](https://doi.org/10.1016/j.jpaa.2022.107035) | [ArXiv](https://arxiv.org/abs/2006.01289) | [Figures code](/papersextras/disguised1)
 
 2. *The Waring rank of binary binomial forms*, with [S.K.Masuti](https://www.cmi.ac.in/people/fac-profile.php?id=shreedevikm).  
-   * Pac. J. Math. (to appear)  
-   * | [ArXiv](https://arxiv.org/abs/2106.15658) |
+   *  Pacific Journal of Mathematics 313 (2021), no.2, pp.327--342  
+   * | [BibTeX](/bibtex/Waring2arybinom.bib) | [DOI](https://doi.org/10.2140/pjm.2021.313.327) | [ArXiv](https://arxiv.org/abs/2106.15658) |  
    <!-- We establish an explicit formula for the Waring rank of every binary binomial form. -->
 
 3. *Inverting catalecticants of ternary quartics*, with [E.Cazzador](https://www.mn.uio.no/math/english/people/aca/elisacaz/) & [R.Homs](https://roserhp.github.io/).  
-   * Le Matematiche (to appear)
-   * | [ArXiv](https://arxiv.org/abs/2105.10555) |  
+   * Le Matematiche 76 (2021), no.2, pp.517--533  
+   * | [BibTeX](/bibtex/InvCatalecticants3ary4ics.bib) | [DOI](https://doi.org/10.4418/2021.76.2.14) | [ArXiv](https://arxiv.org/abs/2105.10555) |  
     
 4. *96120: The degree of the linear orbit of a cubic surface*, with [S.Timme](https://sascha.timme.xyz/) & [M.Weinstein](https://math.berkeley.edu/~maddie/).  
-   * Le Matematiche 75 (2020), no.2, pp. 425--437
-   * | [BibTeX](/bibtex/DegreeOrbitCubic.bib) | [DOI](https://doi.org/10.4418/2020.75.2.2) | [ArXiv](https://arxiv.org/abs/1909.06620) |
+   * Le Matematiche 75 (2020), no.2, pp.425--437
+   * | [BibTeX](/bibtex/DegreeOrbitCubic.bib) | [DOI](https://doi.org/10.4418/2020.75.2.2) | [ArXiv](https://arxiv.org/abs/1909.06620) |  
    
 5. *On the universal scheme of r-relative clusters of a family*.  
-   * Communications in Algebra 45 (2017), no.6, pp. 2708--2725
-   * | [BibTeX](/bibtex/BrustengaMoncusi2017.bib) | [DOI](https://doi.org/10.1080/00927872.2016.1175452) | [ArXiv](https://arxiv.org/abs/1408.0552) |
+   * Communications in Algebra 45 (2017), no.6, pp.2708--2725
+   * | [BibTeX](/bibtex/BrustengaMoncusi2017.bib) | [DOI](https://doi.org/10.1080/00927872.2016.1175452) | [ArXiv](https://arxiv.org/abs/1408.0552) |  
 
 ## Preprints
 
